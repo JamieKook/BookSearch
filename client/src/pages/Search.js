@@ -33,12 +33,15 @@ function Search() {
                 handleInputChange={handleInputChange}
             />
             <CardContainer>
-                <BookCard
-                    buttonName="Save"
-                />
-                <BookCard
-                    buttonName="Save"
-                />
+                {books.map(book => (
+                    <BookCard
+                     buttonName= "Save"
+                     title= {book.volumeInfo.title}
+                     authors= {book.volumeInfo.authors[0]}
+                     img= {book.volumeInfo.imageLinks.thumbnail}
+                     description= {book.volumeInfo.description}
+                    />
+                ))}
             </CardContainer>
         </div>
     )
