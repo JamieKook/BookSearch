@@ -10,7 +10,7 @@ function BookCard(props) {
             </div>
            <div className="col-sm-8 d-flex justify-content-end">
            <button type="button" className="btn btn-success m-2">View</button>
-           <button type="button" className="btn btn-info m-2">Save</button>
+           <button type="button" className="btn btn-info m-2">{props.buttonName}</button>
            </div>
         </div>
         <div className="row">

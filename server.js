@@ -5,6 +5,9 @@ const routes = require("./routes");
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+//To use .env file on localserver
+require('dotenv').config();
+
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
