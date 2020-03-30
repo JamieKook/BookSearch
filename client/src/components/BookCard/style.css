@@ -1,0 +1,16 @@
+img {
+    object-fit: contain; 
+}
+
+.bookBtn {
+    width: 90px; 
+    height: 40px; 
+}
+
+.bookLink {
+    color: white; 
+}
+
+.bookLink:hover {
+    color: black; 
+}

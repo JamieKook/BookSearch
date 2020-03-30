@@ -1,11 +1,21 @@
-import React from "react";
+import React, {useRef} from "react";
+import {useBooksContext} from "../../utils/GlobalState"; 
 
 function Searchbar(props) {
+  const [state, dispatch]= useBooksContext(); 
+
+  const searchInput = useRef(); 
+  const handleInputChange= (event)=>{
+    dispatch({type: "handleSearchInput", "searchInput": searchInput.current.value}); 
+    console.log(state.searchInput); 
+  }
+
+
   return (
     <div className="container">
         <form className="form-inline m-3" action="/">
             <h2 className="m-5">Book Search</h2>
-            <input onChange={props.handleInputChange} className="m-3" type="text" placeholder="Book Title"/>
+            <input ref={searchInput} onChange={()=>handleInputChange()} className="m-3" type="text" placeholder="Book Search Term"/>
             <button onClick={props.handleFormSubmit} className="btn btn-secondary m-3" type="submit">Search</button>
         </form>
     </div>
