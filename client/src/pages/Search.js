@@ -13,8 +13,6 @@ function Search() {
 
     const [state, dispatch] = useBooksContext(); 
 
-    console.log(state); 
-
     // function handleInputChange(event){
     //     const {value}= event.target; 
     //     setSearchTerm(value); 

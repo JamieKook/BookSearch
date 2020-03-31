@@ -9,6 +9,8 @@ const reducer = (state, action) => {
       return {...state, searchInput: action.searchInput}
   case "addBook":
     return {...state, savedBooks: [...state.savedBooks, action.newBook] };
+  case "getAllBooks":
+    return {...state, savedBooks: action.allBooks}; 
   default:
     throw new Error(`Invalid action type: ${action.type}`);
   }

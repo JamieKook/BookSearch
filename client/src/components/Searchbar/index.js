@@ -8,7 +8,6 @@ function Searchbar(props) {
 
   const handleInputChange= ()=>{
     dispatch({type: "handleSearchInput", "searchInput": searchInput.current.value}); 
-    console.log(state.searchInput); 
   }
 
   useEffect(()=>{

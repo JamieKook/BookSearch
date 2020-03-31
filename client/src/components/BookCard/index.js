@@ -1,6 +1,7 @@
 import React from "react";
 import "./style.css"; 
 import {useBooksContext} from "../../utils/GlobalState"; 
+import API from "../../utils/API";
 
 function BookCard(props) {
     const [state, dispatch]= useBooksContext(); 
@@ -12,11 +13,15 @@ function BookCard(props) {
                             description: props.description,
                             image: props.img,
                             link: props.link}
-        console.log(bookObject); 
+        API.saveBook(bookObject)
+            .then((bookData)=>{
+                console.log("Book Saved"); 
+            })
+            .catch((err)=>{
+                console.log(err); 
+            }); 
         return bookObject; 
     }; 
-
-    console.log(state.savedBooks); 
 
   return (
     <div className="card">
