@@ -1,15 +1,19 @@
-import React, {useRef} from "react";
+import React, {useRef, useEffect} from "react";
 import {useBooksContext} from "../../utils/GlobalState"; 
 
 function Searchbar(props) {
   const [state, dispatch]= useBooksContext(); 
 
   const searchInput = useRef(); 
-  const handleInputChange= (event)=>{
+
+  const handleInputChange= ()=>{
     dispatch({type: "handleSearchInput", "searchInput": searchInput.current.value}); 
     console.log(state.searchInput); 
   }
 
+  useEffect(()=>{
+    handleInputChange(); 
+  }, []); 
 
   return (
     <div className="container">
