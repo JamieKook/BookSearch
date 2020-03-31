@@ -7,8 +7,8 @@ const reducer = (state, action) => {
   switch (action.type) {
   case "handleSearchInput":
       return {...state, searchInput: action.searchInput}
-  case "addBook":
-    return {...state, savedBooks: [...state.savedBooks, action.newBook] };
+  // case "addBook":
+  //   return {...state, savedBooks: [...state.savedBooks, action.newBook] };
   case "getAllBooks":
     return {...state, savedBooks: action.allBooks}; 
   default:

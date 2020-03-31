@@ -7,7 +7,7 @@ function BookCard(props) {
     const [state, dispatch]= useBooksContext(); 
 
     const createBookObject= (event)=>{
-        event.preventDefault(); 
+        // event.preventDefault(); 
         const bookObject = {title: props.title,
                             authors: props.authors,
                             description: props.description,
@@ -23,6 +23,18 @@ function BookCard(props) {
         return bookObject; 
     }; 
 
+    const deleteBook= (event, id)=>{
+        event.preventDefault(); 
+        console.log(id); 
+        API.deleteBook(id)
+            .then((res)=>{
+                console.log(res); 
+            })
+            .catch((err)=>console.log(err)); 
+    }; 
+
+// old code- testing new one
+    // onClick={(props.buttonName==="Save")? ((event)=>dispatch({type: "addBook", newBook: createBookObject(event)})): ((event)=> deleteBook(event, props.id))} className="bookLink" href="/saved" target="_blank">{props.buttonName}</a></button>
   return (
     <div className="card">
         <div className="row">
@@ -32,7 +44,7 @@ function BookCard(props) {
             </div>
            <div className="col-sm-8 d-flex justify-content-end">
            <button type="button" className="bookBtn btn btn-success m-3"><a className="bookLink" target="_blank" href={props.link}>View</a></button>
-           <button type="button" className="bookBtn btn btn-info m-3"><a  onClick={(props.buttonName==="Save")? ((event)=>dispatch({type: "addBook", newBook: createBookObject(event)})): (()=> "")} className="bookLink" href="/saved" target="_blank">{props.buttonName}</a></button>
+           <button type="button" className="bookBtn btn btn-info m-3"><a  onClick={(props.buttonName==="Save")? ((event=>createBookObject(event))): ((event)=> deleteBook(event, props.id))} className="bookLink" href="/saved" target="_blank">{props.buttonName}</a></button>
            </div>
         </div>
         <div className="row m-3">
@@ -43,8 +55,7 @@ function BookCard(props) {
                 <p>{props.description}</p>
             </div>
         </div>
-      ,
-,    </div>
+    </div>
   );
 }
 

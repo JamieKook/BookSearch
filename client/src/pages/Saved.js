@@ -9,7 +9,7 @@ function Saved() {
 
     useEffect(() => {
         loadBooks()
-      }, [])
+      }, [state.savedBooks])
     
       // Loads all books and sets them to books
       function loadBooks() {
@@ -36,6 +36,7 @@ function Saved() {
                      img= {book.image? (book.image) : ("https://placehold.it/300x300")}
                      description= {book.description}
                      link={book.link}
+                     id={book._id}
                     />
                 )) 
                 )}
